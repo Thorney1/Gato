@@ -22,6 +22,7 @@ public class JuegoDelGato {
                 System.out.println("---------");
             }
         }
+        System.out.println(" ");
     }
 
     public static void jugar() throws IOException {
@@ -133,6 +134,35 @@ public class JuegoDelGato {
         }
         return true;
     }
+
+    public static void otraPartida() throws IOException {
+        boolean jugarOtraPartida=true;
+        String entrada;
+        BufferedReader bufer = new BufferedReader(new InputStreamReader(System.in));
+
+        while(jugarOtraPartida){
+            System.out.println("¿Quieres jugar otra partida?[si/no]: ");
+            entrada = bufer.readLine().toLowerCase();
+            if(entrada.equals("si") || entrada.equals("s")){
+                reiniciarTablero();
+                jugar();
+            }
+            else if (entrada.equals("no") || entrada.equals("n")) {
+                    jugarOtraPartida = false;
+                } else {
+                    System.out.println("Entrada inválida. Por favor, responde con 'si' o 'no'.");
+                }
+        }
+    }
+
+    public static void reiniciarTablero() throws IOException {
+        gato = new char[][] {
+                {' ', ' ', ' '},
+                {' ', ' ', ' '},
+                {' ', ' ', ' '}
+        };
+    }
+
 }
 
 
